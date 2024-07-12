@@ -34,7 +34,8 @@ Dead는 사망했을 경우를 의미합니다.
         }
         public void Exit()
         {
-            _playerController = null;
+            Debug.Log("Idle State Out!");
+            if(_playerController) _playerController = null;
         }
 
     }
@@ -61,7 +62,8 @@ Dead는 사망했을 경우를 의미합니다.
         }
         public void Exit()
         {
-            _playerController = null;
+            Debug.Log("MoveState Out!");
+            if(_playerController) _playerController = null;
         }
         /*
         일반적인 공격은 Move 상태에서 일정 주기로 실행됨
@@ -90,16 +92,6 @@ Dead는 사망했을 경우를 의미합니다.
                 }
             }
         }
-        void OnCollisionEnter2D(Collision2D collision)
-        {
-            Debug.Log("Collide!");
-            // 점프 관련 처리
-            if(collision.gameObject.CompareTag("Floor"))
-            {
-                _isJumping = false;
-                _playerController.jumpCount = 1;
-            }
-        }
 
     }
     /*
@@ -122,7 +114,8 @@ Dead는 사망했을 경우를 의미합니다.
         }
         public void Exit()
         {
-            _playerController = null;
+            Debug.Log("Attack States Out");
+            if(_playerController) _playerController = null;
         }
 
     }
@@ -143,7 +136,8 @@ Dead는 사망했을 경우를 의미합니다.
         }
         public void Exit()
         {
-            _playerController = null;
+            Debug.Log("Dead State Out");
+            if(_playerController) _playerController = null;
         }
 
     }

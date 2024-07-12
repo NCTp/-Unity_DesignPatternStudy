@@ -12,13 +12,19 @@ namespace Player
         {
             _playerController = playerController;
         }
+        void Awake()
+        {
+            
+        }
 
         public void Transition()
         {
+            //CurrentState.Exit();
             CurrentState.Handle(_playerController);
         }
         public void Transition(IPlayerState state)
         {
+            CurrentState.Exit();
             CurrentState = state;
             CurrentState.Handle(_playerController); 
 

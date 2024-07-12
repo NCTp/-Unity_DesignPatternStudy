@@ -14,6 +14,7 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         public PlayerCharacter playerCharacter;
+
         public float speed = 2.0f;
         public float CurrentSpeed {get; set;}
         public float attackRate = 1.0f;
@@ -21,9 +22,18 @@ namespace Player
         public int jumpCount = 1;
         public Rigidbody2D rigidbody;
 
-        private IPlayerState _idleState, _moveState, _attackState; // Idle, Move, Attack States
+        private IPlayerState _idleState, _moveState, _attackState, _deadState; // Idle, Move, Attack States
         private PlayerStateContext _playerStateContext;
-        
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log("Collide!");
+            // 점프 관련 처리
+            if(collision.gameObject.CompareTag("Floor"))
+            {
+                //_isJumping = false;
+                jumpCount = 1;
+            }
+        }
         void Awake()
         {
             rigidbody = GetComponent<Rigidbody2D>();
@@ -31,7 +41,9 @@ namespace Player
             _idleState = gameObject.AddComponent<PlayerIdleState>();
             _moveState = gameObject.AddComponent<PlayerMoveState>();
             _attackState = gameObject.AddComponent<PlayerAttackState>();
+            _deadState = gameObject.AddComponent<PlayerDeadState>();
             CurrentSpeed = 0.0f;
+            _playerStateContext.CurrentState = _idleState;
             Debug.Log("I am " + playerCharacter.ToString() + "!");
         }
 
@@ -41,17 +53,22 @@ namespace Player
         void Update()
         {
         }
-        public void IdlePlayer()
+        public void PlayerIdle()
         {
             _playerStateContext.Transition(_idleState);
         }
-        public void MovePlayer()
+        public void PlayerMove()
         {
             _playerStateContext.Transition(_moveState);
         }
-        public void AttackPlayer()
+        public void PlayerAttack()
         {
             _playerStateContext.Transition(_attackState);
         }
+        public void PlayerDead()
+        {
+            _playerStateContext.Transition(_deadState);
+        }
     }
+    
 }

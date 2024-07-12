@@ -14,17 +14,25 @@ namespace Player
         }
         void Start()
         {
-            _playerController.IdlePlayer();
+            _playerController.PlayerIdle();
         }
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.Alpha1))
             {
-                _playerController.MovePlayer();
+                _playerController.PlayerIdle();
             }
-            if(Input.GetKeyDown(KeyCode.Q))
+            if(Input.GetKeyDown(KeyCode.Alpha2))
             {
-                _playerController.IdlePlayer();
+                _playerController.PlayerMove();
+            }
+            if(Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                _playerController.PlayerAttack();
+            }
+            if(Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                _playerController.PlayerDead();
             }
         }
     }
