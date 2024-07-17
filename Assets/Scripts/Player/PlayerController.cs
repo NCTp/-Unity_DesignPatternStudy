@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Player
+namespace PlayerStates
 {
     public enum PlayerCharacter
         {
@@ -69,6 +69,7 @@ namespace Player
         {
             _playerStateContext.Transition(_deadState);
         }
+        
     }
     
 }

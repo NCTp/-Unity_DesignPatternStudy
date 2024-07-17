@@ -1,4 +1,4 @@
-namespace Player
+namespace PlayerStates
 {
     public class PlayerStateContext
     {

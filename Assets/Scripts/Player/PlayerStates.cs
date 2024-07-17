@@ -2,7 +2,7 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Player
+namespace PlayerStates
 {
 /*
 플레이어의 상태는 현재 크게 Idle / Move / Dead 세가지로 나뉩니다.

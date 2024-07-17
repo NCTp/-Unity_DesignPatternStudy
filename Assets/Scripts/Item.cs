@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Player;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    
     private enum ItemStates
     {
         Idle,
