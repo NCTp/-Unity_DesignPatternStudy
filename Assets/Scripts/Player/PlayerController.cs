@@ -26,7 +26,7 @@ namespace PlayerStates
         private PlayerStateContext _playerStateContext;
         void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("Collide!");
+            //Debug.Log("Collide!");
             // 점프 관련 처리
             if(collision.gameObject.CompareTag("Floor"))
             {
@@ -52,6 +52,16 @@ namespace PlayerStates
         }
         void Update()
         {
+        }
+        public void Jump()
+        {
+            Debug.Log("짬뿌!");
+            if(jumpCount >= 1)
+            {
+                rigidbody.AddForce(new Vector2(0.0f, jumpForce));
+                jumpCount -= 1;
+            }
+            
         }
         public void PlayerIdle()
         {

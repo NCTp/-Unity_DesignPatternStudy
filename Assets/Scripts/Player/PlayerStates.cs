@@ -49,7 +49,6 @@ Dead는 사망했을 경우를 의미합니다.
         private PlayerController _playerController;
 
         private float _attackTimer = 0.0f;
-        private bool _isJumping = false;
         public void Handle(PlayerController playerController)
         {
             if(!_playerController)
@@ -83,13 +82,14 @@ Dead는 사망했을 경우를 의미합니다.
                 //ector2 dir = new Vector2(horizontal, vertical);
                 //Debug.Log(_playerController.speed);
                 transform.Translate(new Vector3(horizontal, vertical, 0.0f) * _playerController.CurrentSpeed * Time.deltaTime);
-
+/*
                 if(Input.GetKeyDown(KeyCode.Space) && _playerController.jumpCount > 0) // 점프 입력 받기
                 {
                     _playerController.rigidbody.AddForce(new Vector2(0.0f, _playerController.jumpForce));
                     _isJumping = true; // 추후 애니메이션 조작을 위함.
                     _playerController.jumpCount -= 1;
                 }
+                */
             }
         }
 
