@@ -7,9 +7,10 @@ using UnityEngine;
 public class Entity : MonoBehaviour, IDamageable
 {
     public float health;
-    private float CurrentHealth;
+    protected float CurrentHealth;
     public virtual void GetDamage(DamageMessage damageMessage)
     {
+        CurrentHealth -= damageMessage.amount;
         Debug.Log("Entity");
     }
     // Start is called before the first frame update
