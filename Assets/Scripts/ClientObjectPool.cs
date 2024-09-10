@@ -10,12 +10,6 @@ public class ClientObjectPool : MonoBehaviour
     {
         _enemyPool = gameObject.AddComponent<EnemyObjectPool>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnGUI()
     {
         if(GUILayout.Button("Spawn Drones"))
