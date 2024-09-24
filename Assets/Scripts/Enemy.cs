@@ -38,6 +38,7 @@ public class Enemy : Entity
         CurrentHealth = health;
     }
 
+    // 풀에 돌아갈 때 호출하는 함수
     void ReturnToPool()
     {
         Pool.Release(this);
