@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class Subject : MonoBehaviour
 {
-    private readonly ArrayList _observers = new ArrayList();
+    private readonly ArrayList _observers = new ArrayList(); // 서브젝트를 관측하는 옵저버들
 
 
     // 옵저버를 리스트에 추가
@@ -26,16 +26,5 @@ public abstract class Subject : MonoBehaviour
         {
             observer.Notify(this);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

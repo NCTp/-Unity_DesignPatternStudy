@@ -48,26 +48,4 @@ public class LightController : Subject
             NotifyObservers();
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // A키를 눌러 옵저버들에게 Notify
-        //if(Input.GetKeyDown(KeyCode.A)) NotifyObservers();
-    }
-    [RuntimeInitializeOnLoadMethod]
-    static void PrintSayHello1()
-    {
-        Debug.LogWarning("게임이 실행되면 출력됩니다");
-    }
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    static void PrintSayHello2()
-    {
-        Debug.LogWarning("씬 로드 직전 출력됩니다");
-    }
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    static void PrintSayHello3()
-    {
-        Debug.LogWarning("씬 로드 직후 출력됩니다");
-    }
 }
